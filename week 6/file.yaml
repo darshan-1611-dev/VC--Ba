@@ -1,0 +1,16 @@
+file_type: csv
+file_name: data
+inbound_delimiter: ","
+skip_leading_rows: 1
+columns: 
+    - symbol
+    - date
+    - time
+    - open
+    - high
+    - low
+    - close
+    - volume
+    - openinterest
+    - ticktime
+

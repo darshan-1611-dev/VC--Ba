@@ -1,0 +1,108 @@
+ <!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Darshan Dhanani">
+	<title>Dataset</title>
+		
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}">    
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/dataTables.bootstrap5.css') }}">    
+	
+	<style>
+	.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+    padding: 1px;
+}
+	</style>
+ </head>
+
+<body>
+	
+	<div class="col-lg-8 mx-auto p-4 py-md-5">
+	
+		<!-- Header Start -->
+		<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+			<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='brand/logo.png') }}" width="150" height="150" alt="Darshan Dhanani"></a>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Data description Start -->
+		<h2 class="text-body-emphasis">WineClassifier Dataset</h2>
+		<p>The wine dataset is a classic and very easy multi-class classification dataset.<p>
+		
+		<table class="table table-sm table-condensed table-striped" style="width: 300px;">
+		<tbody>
+		<tr>
+      <td>Classes</td>
+      <td>3</td>
+	</tr>
+	<tr>
+      <td>Samples per class</td>
+      <td>[59,71,48]</td>
+	</tr>
+	<tr>
+      <td>Samples total</td>
+      <td>178</td>
+	</tr>
+	<tr>
+      <td>Dimensionality</td>
+      <td>13</td>
+	</tr>
+	<tr>
+      <td>Features</td>
+      <td>real, positive</td>
+	</tr>
+  </tbody>
+</table>
+
+		<!-- Data description End -->
+		
+		<!-- DataTable Start -->
+		<br/>
+		<br/>
+		<h4 class="text-body-emphasis">Explore Dataset</h4>
+		<table id="dataset" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+			{% for column in datas.columns.tolist() %}
+                <th>{{ column }}</th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+		{% for data in datas.values %}
+            <tr>
+                <td>{{ data[0] }}</td>
+				<td>{{ data[1] }}</td>
+				<td>{{ data[2] }}</td>
+				<td>{{ data[3] }}</td>
+				<td>{{ data[4] }}</td>
+				<td>{{ data[5] }}</td>
+				<td>{{ data[6] }}</td>
+				<td>{{ data[7] }}</td>
+				<td>{{ data[8] }}</td>
+				<td>{{ data[9] }}</td>
+				<td>{{ data[10] }}</td>
+				<td>{{ data[11] }}</td>
+				<td>{{ data[12] }}</td>
+				<td>{{ data[13] }}</td>
+            </tr>
+		{% endfor %}
+			</tbody>
+			</table>
+		<!-- DataTable End -->
+	</div>
+</body>
+
+<script src="{{ url_for('static', filename='dist/js/jquery-3.7.1.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/dataTables.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/dataTables.bootstrap5.js') }}"></script>
+
+<script>
+new DataTable('#dataset', {
+    scrollX: true
+});
+</script>
+</html>

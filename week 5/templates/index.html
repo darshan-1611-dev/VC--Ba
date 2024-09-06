@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Darshan Dhanani">
+    <title>Home</title>
+	
+	
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}">    
+</head>
+
+<body>
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+  <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='brand/logo.png') }}" width="150" height="150" alt="Darshan Dhanani"></a>
+  </header>
+  
+  <main>
+    <h2 class="text-body-emphasis">Welcome to WineClassifier Pro!</h2>
+    <p>In this project, I tackled a classification problem using 
+	<b><a href="{{ url_for('dataset') }}" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">wine data</a></b>
+	, aiming to group the wines into three distinct classes. To achieve this, I employed various classification models, including Logistic Regression, KNeighborsClassifier, XGBoost, RandomForest, among others.
+	Additionally, I applied data preprocessing techniques such as feature scaling and Linear Discriminant Analysis (LDA) to ensure efficient model training and enhance predictive accuracy. </p>
+
+    <div class="mb-5">
+      <a href="{{ url_for('predict_data') }}" class="btn btn-secondary btn-md px-4">Predict your Data</a>
+    </div>
+
+    <hr class="col-3 col-md-2 mb-5">
+
+    <div class="row g-5">
+	<!-- Models List Start -->
+      <div class="col-md-6">
+        <h2 class="text-body-emphasis">Trained Models</h2>
+        <p>Below are the models I've trained along with the corresponding test data.</p>
+        <ul class="list-unstyled ps-0">
+		  <li>
+			<a class="icon-link mb-1" href="{{ url_for('trained_model') }}#data_preprocessing" rel="noopener">
+				<svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+				Data Preprocessing
+				</a>
+          </li>
+          <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#logistic_regression" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Logistic Regression
+            </a>
+          </li>
+          <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#kneighbors_classifier" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              K-Neighbors Classifier
+            </a>
+          </li>
+          <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#support_vector_machine(SVM)" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Support Vector Machine(SVM)  
+            </a>
+          </li>
+          <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#kernelSVM" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Kernel SVM
+            </a>
+          </li>
+		  <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#decisiontree_classifier" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Decision Tree Classification
+            </a>
+          </li>
+		  <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#randomforest_classifier" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Random Forest Classification
+            </a>
+          </li>
+		  <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#naiveBayes" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Naive Bayes
+            </a>
+          </li>
+		  <li>
+            <a class="icon-link mb-1" href="{{ url_for('trained_model') }}#XGBoost" rel="noopener">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              XGBoost
+            </a>
+          </li>
+        </ul>
+      </div>
+	  <!-- Models List Start -->
+
+	<!-- DataSet Section -->
+      <div class="col-md-6">
+        <h2 class="text-body-emphasis">Dataset</h2>
+        <p>Read more detailed instructions about dataset using below link.</p>
+        <ul class="list-unstyled ps-0">
+          <li>
+            <a class="icon-link mb-1" href="{{ url_for('dataset') }}">
+              <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+              Explore Dataset
+            </a>
+          </li>
+        </ul>
+      </div>
+	  <!-- End DataSet Section -->
+    </div>
+  </main>
+  <footer class="pt-5 my-5 text-body-secondary border-top">
+    Created by the <a href="https://www.linkedin.com/in/darshan-dhanani-04b73121a/" target="_blank">Darshan Dhanani</a> &middot; &copy; 2024
+  </footer>
+</div>
+<script src="{{ url_for('static', filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    </body>
+</html>

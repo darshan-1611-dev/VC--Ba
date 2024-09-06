@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Darshan Dhanani">
+    <title>Predict Data</title>
+  
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}">    
+{% if datas is defined %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/dataTables.bootstrap5.css') }}">    
+{% endif %}
+</head>
+
+<body>
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+  <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='brand/logo.png') }}" width="150" height="150" alt="Darshan Dhanani"></a>
+  </header>	  
+  <h3 class="text-body-emphasis">Predict Class with provide below details!</h3>
+  <br/>
+  
+  <!-- form start -->
+  <form action = "{{url_for('predict')}}" method ="POST">
+  <div class="row">
+	<!-- Alcohol -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom01">Alcohol</label>
+      <input type="number" class="form-control" step="any" id="validationCustom01" placeholder="Alcohol" name="alcohol" required>
+    </div>
+	<!-- end Alcohol -->
+	
+	<!-- Malic Acid -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom02">Malic Acid</label>
+      <input type="number" class="form-control" step="any" id="validationCustom02" placeholder="Malic Acid" name="malic_acid" required>
+    </div>
+	<!-- end Malic Acid -->
+	
+	<!-- Ash -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom03">Ash</label>
+        <input type="number" class="form-control" step="any" id="validationCustom03" placeholder="Ash" name="ash" required>
+    </div>
+	<!-- end Ash -->
+  </div>
+  
+  <div class="row">
+	<!-- Alcalinity of Ash -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom04">Alcalinity of Ash</label>
+      <input type="number" class="form-control" step="any" id="validationCustom04" placeholder="Alcalinity of Ash" name="alcalinity_of_ash" required>
+    </div>
+	<!-- end Alcalinity of Ash -->
+	
+	<!-- Magnesium -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom05">Magnesium</label>
+      <input type="number" class="form-control" step="any" id="validationCustom05" placeholder="Magnesium" name="magnesium" required>
+    </div>
+	<!-- end Magnesium -->
+	
+	<!-- Total Phenols -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom06">Total Phenols</label>
+        <input type="number" class="form-control" step="any" id="validationCustom06" placeholder="Total Phenols" name="total_phenols" required>
+    </div>
+	<!-- end Total Phenols -->
+  </div>
+  
+  <div class="row">
+	<!-- Flavanoids -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom07">Flavanoids</label>
+      <input type="number" class="form-control" step="any" id="validationCustom07" placeholder="Flavanoids" name="flavanoids" required>
+    </div>
+	<!-- end Alcohol -->
+	
+	<!-- Nonflavanoid Phenols -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom08">Nonflavanoid Phenols</label>
+      <input type="number" class="form-control" step="any" id="validationCustom08" placeholder="Nonflavanoid Phenols" name="nonflavanoid_phenols" required>
+    </div>
+	<!-- end Nonflavanoid Phenols -->
+	
+	<!-- Proanthocyanins -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom09">Proanthocyanins</label>
+        <input type="number" class="form-control" step="any" id="validationCustom09" placeholder="Proanthocyanins" name="proanthocyanins" required>
+    </div>
+	<!-- end Proanthocyanins -->
+  </div>
+  
+  <div class="row">
+	<!-- Color Intensity -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom10">Color Intensity</label>
+      <input type="number" class="form-control" step="any" id="validationCustom10" placeholder="Color Intensity" name="color_intensity" required>
+    </div>
+	<!-- end Color Intensity -->
+	
+	<!-- Hue -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom11">Hue</label>
+      <input type="number" class="form-control" step="any" id="validationCustom11" placeholder="Hue" name="hue" required>
+    </div>
+	<!-- end Hue -->
+	
+	<!-- od280/od315 of Diluted Wines -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom12">od280/od315 of Diluted Wines</label>
+        <input type="number" class="form-control" step="any" id="validationCustom12" placeholder="od280/od315 of Diluted Wines" name="od280/od315_of_diluted_wines" required>
+    </div>
+	<!-- end od280/od315 of Diluted Wines -->
+  </div>
+  
+  <div class="row">
+	<!-- Proline -->
+    <div class="col-md-4 mb-3">
+      <label class="mb-2" for="validationCustom13">Proline</label>
+      <input type="number" class="form-control" step="any" id="validationCustom13" placeholder="Proline" name="proline" required>
+    </div>
+	<!-- end Proline -->
+	
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+<!-- form end -->
+<br>
+
+{% if datas is defined %}
+<hr class="featurette-divider"/>
+<br>
+<!-- target result -->
+<h2 class="text-body-emphasis">Target result</h2>
+		<p>The models are trained to classify wines into three classes: class 0, class 1, and class 2. You can find below result of predictiong wine class using various pre-trained models.<p>
+		
+		
+<table class="table table-sm table-condensed table-striped" style="width: 300px;">
+		<tbody>
+		{% for i in datas[0] %}
+		<tr>
+			<td>{{ i[0] }}</td>
+			<td>{{ i[1][0] }}</td>
+		</tr>
+		{% endfor %}
+  </tbody>
+</table>
+<!-- traget result end -->
+
+<hr class="featurette-divider"/>
+<br>
+
+<!-- submitted data -->
+<h2 class="text-body-emphasis">Submitted Data</h2>
+
+<table id="dataset" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+			<th>alcohol</th>	
+			<th>malic_acid</th>
+			<th>ash</th>
+			<th>alcalinity_of_ash</th>
+			<th>magnesium</th>
+			<th>total_phenols</th>
+			<th>flavanoids</th>
+			<th>nonflavanoid_phenols</th>
+			<th>proanthocyanins</th>
+            <th>color_intensity</th>
+			<th>hue</th>
+			<th>od280/od315_of_diluted_wines</th>
+            <th>proline</th>
+            </tr>
+        </thead>
+        <tbody>
+		
+            <tr>
+			{% for data in datas[1] %}
+                <td>{{ data }}</td>
+				{% endfor %}
+            </tr>
+		
+			</tbody>
+			</table>
+<!-- submitted data end -->
+    
+<script src="{{ url_for('static', filename='dist/js/jquery-3.7.1.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/dataTables.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/dataTables.bootstrap5.js') }}"></script>
+
+<script>
+// datatable 
+new DataTable('#dataset', {
+    scrollX: true
+});
+
+// scroll down page when load
+function Scrolldown() {
+     window.scroll(0,800); 
+}
+
+window.onload = Scrolldown;
+
+</script>
+{% endif %}
+
+
+</div>
+</body>
+<script src="{{ url_for('static', filename='/static/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+</html>
+  
